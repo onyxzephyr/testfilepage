@@ -1,0 +1,249 @@
+/* --- Basic Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    overflow-x: hidden; /* Prevents accidental left/right scrolling on the whole page */
+}
+
+/* --- Header & Navigation --- */
+header {
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: transparent;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    z-index: 1000; 
+}
+
+header.scrolled {
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    padding: 15px 50px; 
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #3498db;
+}
+
+/* --- HERO SLIDER SECTION --- */
+.hero-slider {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden; /* Hides the slides that are off-screen */
+}
+
+/* The track holding all 3 images */
+.slides-track {
+    display: flex;
+    height: 100%;
+    width: 300%; /* Because there are 3 slides, the track must be 300% wide */
+    transition: transform 0.6s ease-in-out; /* The smooth sliding animation */
+}
+
+/* Individual Slide styling */
+.slide {
+    width: 33.3333%; /* Each slide takes exactly 1 screen width (100 / 3) */
+    height: 100%;
+    background-size: cover;
+    background-position: center top; 
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 65px;
+    color: white; 
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 24px;
+    color: #e0e0e0;
+    margin-bottom: 35px;
+}
+
+.cta-button {
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px); 
+}
+
+/* --- Slider Dots --- */
+.slider-dots {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    z-index: 10; /* Keeps the dots clickable above the images */
+}
+
+.dot {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin: 0 8px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background-color: white;
+    transform: scale(1.3);
+}
+
+/* --- Services Section --- */
+.services-section {
+    padding: 100px 50px;
+    text-align: center; 
+    background-color: #f8f9fa; 
+}
+
+.services-section h2 {
+    font-size: 36px;
+    margin-bottom: 60px;
+    color: #1a1a1a;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 30%;
+    min-width: 280px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    font-size: 22px;
+}
+/* --- About Section --- */
+.about-section {
+    padding: 100px 50px;
+    background-color: white; /* Contrasts nicely with the grey specialities section */
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Space between the photo and the text */
+    max-width: 900px; /* Keeps the text from stretching too wide on big screens */
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* This makes the image a perfect circle! */
+    object-fit: cover; /* Ensures the image fills the circle without squishing */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6; /* Adds breathing room between the lines of text */
+    color: #555;
+}
+/* --- Footer & Social Links --- */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.social-links a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #2980b9;
+}
