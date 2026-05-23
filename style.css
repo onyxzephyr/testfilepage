@@ -187,10 +187,11 @@ nav ul li a:hover {
     color: #1a1a1a;
     font-size: 22px;
 }
+
 /* --- About Section --- */
 .about-section {
     padding: 100px 50px;
-    background-color: white; /* Contrasts nicely with the grey specialities section */
+    background-color: white; 
     display: flex;
     justify-content: center;
 }
@@ -198,20 +199,18 @@ nav ul li a:hover {
 .about-container {
     display: flex;
     align-items: center;
-    gap: 60px; /* Space between the photo and the text */
-    max-width: 900px; /* Keeps the text from stretching too wide on big screens */
+    gap: 60px; 
+    max-width: 900px; 
 }
 
 .profile-pic {
     width: 250px;
     height: 250px;
-    border-radius: 50%; /* This makes it a circle */
-    object-fit: cover; /* Ensures your photo doesn't look stretched inside the circle */
-    
-    flex-shrink: 0; /* CRITICAL: This orders Flexbox NOT to squish your image into an oval! */
-    
-    border: 5px solid white; /* Adds a clean, whole, solid white border around the picture */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Enhances the depth shadow under the border */
+    border-radius: 50%; 
+    object-fit: cover; 
+    flex-shrink: 0; /* Keeps photo a perfect circle */
+    border: 5px solid white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .about-text {
@@ -226,9 +225,10 @@ nav ul li a:hover {
 
 .about-text p {
     font-size: 18px;
-    line-height: 1.6; /* Adds breathing room between the lines of text */
+    line-height: 1.6; 
     color: #555;
 }
+
 /* --- Footer & Social Links --- */
 footer {
     background-color: #1a1a1a;
@@ -250,4 +250,49 @@ footer {
 
 .social-links a:hover {
     color: #2980b9;
+}
+
+
+/* ==========================================
+   --- SMARTPHONE RESPONSIVE STYLES ---
+   ========================================== */
+@media (max-width: 768px) {
+    /* Give sections breathing room without choking content */
+    header {
+        padding: 15px 20px;
+    }
+    header.scrolled {
+        padding: 10px 20px;
+    }
+    nav ul {
+        gap: 15px;
+    }
+    .services-section, .about-section {
+        padding: 60px 20px;
+    }
+
+    /* Scale down giant hero typography so it fits mobile screens */
+    .hero-content h1 {
+        font-size: 36px;
+        letter-spacing: 0;
+    }
+    .hero-content p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    /* Force speciality cards to stretch and stack nicely */
+    .card {
+        width: 100%;
+    }
+
+    /* Re-route About container to column layout (Photo stays on top, text stacks below) */
+    .about-container {
+        flex-direction: column;
+        gap: 35px;
+        text-align: center;
+    }
+    .about-text {
+        text-align: center;
+    }
 }
