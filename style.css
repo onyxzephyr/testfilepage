@@ -205,9 +205,13 @@ nav ul li a:hover {
 .profile-pic {
     width: 250px;
     height: 250px;
-    border-radius: 50%; /* This makes the image a perfect circle! */
-    object-fit: cover; /* Ensures the image fills the circle without squishing */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-radius: 50%; /* This makes it a circle */
+    object-fit: cover; /* Ensures your photo doesn't look stretched inside the circle */
+    
+    flex-shrink: 0; /* CRITICAL: This orders Flexbox NOT to squish your image into an oval! */
+    
+    border: 5px solid white; /* Adds a clean, whole, solid white border around the picture */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Enhances the depth shadow under the border */
 }
 
 .about-text {
