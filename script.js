@@ -1,9 +1,13 @@
-// --- BROWSER POSITION OVERRIDE ---
-// Forces the window to start at the top right when the page loads
+// --- FORCE SCROLL TO TOP ON LOAD ---
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
-window.scrollTo(0, 0);
+
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 20); // Tiny delay to defeat aggressive mobile browser memories
+});
 
 // --- SCROLLING HEADER LOGIC ---
 const header = document.getElementById('main-header');
@@ -22,7 +26,6 @@ const dots = document.querySelectorAll('.dot');
 let slideIndex = 0;
 let slideInterval;
 
-// Function to move the slider to the correct slide
 function updateSlider() {
     slidesTrack.style.transform = `translateX(-${slideIndex * 33.3333}%)`;
     
@@ -30,26 +33,22 @@ function updateSlider() {
     dots[slideIndex].classList.add('active');
 }
 
-// Function to go to the next slide automatically
 function nextSlide() {
     slideIndex = (slideIndex + 1) % dots.length;
     updateSlider();
 }
 
-// Function triggered when you manually click a dot
 function currentSlide(index) {
     slideIndex = index;
     updateSlider();
     resetTimer(); 
 }
 
-// Function to start the 5-second automatic sliding
 function startTimer() {
     slideInterval = setInterval(nextSlide, 5000); 
 }
 
-// Function to reset the timer when someone interacts with the dots
-function resetTimer() {
+function __resetTimer() {
     clearInterval(slideInterval);
     startTimer();
 }
