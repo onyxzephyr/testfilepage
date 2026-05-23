@@ -77,6 +77,7 @@ nav ul li a:hover {
 .slide {
     width: 33.3333%; /* Each slide takes exactly 1 screen width (100 / 3) */
     height: 100%;
+    background-color: #1a1a1a; /* FIX: Eliminates the white flash while images download */
     background-size: cover;
     background-position: center top; 
     background-repeat: no-repeat;
@@ -208,7 +209,7 @@ nav ul li a:hover {
     height: 250px;
     border-radius: 50%; 
     object-fit: cover; 
-    flex-shrink: 0; /* Keeps photo a perfect circle */
+    flex-shrink: 0; 
     border: 5px solid white;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
@@ -252,12 +253,8 @@ footer {
     color: #2980b9;
 }
 
-
-/* ==========================================
-   --- SMARTPHONE RESPONSIVE STYLES ---
-   ========================================== */
+/* --- SMARTPHONE RESPONSIVE STYLES --- */
 @media (max-width: 768px) {
-    /* Give sections breathing room without choking content */
     header {
         padding: 15px 20px;
     }
@@ -270,8 +267,6 @@ footer {
     .services-section, .about-section {
         padding: 60px 20px;
     }
-
-    /* Scale down giant hero typography so it fits mobile screens */
     .hero-content h1 {
         font-size: 36px;
         letter-spacing: 0;
@@ -280,13 +275,9 @@ footer {
         font-size: 16px;
         margin-bottom: 25px;
     }
-
-    /* Force speciality cards to stretch and stack nicely */
     .card {
         width: 100%;
     }
-
-    /* Re-route About container to column layout (Photo stays on top, text stacks below) */
     .about-container {
         flex-direction: column;
         gap: 35px;
